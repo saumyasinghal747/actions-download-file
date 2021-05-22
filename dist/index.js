@@ -413,6 +413,7 @@ function getFilenameFromUrl(url) {
 
 async function main() {
   try {
+	const outName = core.getInput("filename");
     const text = core.getInput("url");
     const target = core.getInput("target");
     let autoMatch = core.getInput("auto-match");
@@ -450,7 +451,7 @@ async function main() {
       });
     if (body === undefined) return;
     console.log("Download completed.");
-    const filename = getFilenameFromUrl(url);
+    const filename = outName || getFilenameFromUrl(url);
     fs.writeFileSync(path.join(target, filename), body);
     console.log("File saved.");
     core.setOutput("filename", filename);
