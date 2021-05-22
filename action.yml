@@ -5,6 +5,10 @@ inputs:
     description: "The url"
     required: true
     default: ""
+  filename:
+    description: "The filename"
+    required: false
+    default: ""
   target:
     description: "Target file destination"
     required: true
